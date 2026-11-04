@@ -1,9 +1,56 @@
-@import 'tailwindcss';
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+/* Background terang (putih/abu-abu sangat muda) */
+body {
+    background: #f8f9fa; 
+    color: #212529; /* Teks gelap */
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+.navbar-brand {
+    font-weight: 800;
+}
+
+/* Navbar Pink Magenta */
+.bg-pink-magenta {
+    background-color: #d63384 !important;
+}
+
+/* Tombol Pink Magenta */
+.btn-pink {
+    background-color: #d63384 !important;
+    border-color: #d63384 !important;
+    color: white !important;
+}
+
+.btn-pink:hover {
+    background-color: #a82363 !important;
+    border-color: #a82363 !important;
+    color: white !important;
+}
+
+/* Badge Pink Magenta */
+.badge-pink {
+    background-color: #d63384 !important;
+    color: white !important;
+}
+/* Badge Pink Magenta */
+.badge-pink {
+    background-color: #d63384 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Tombol Pink Magenta */
+.btn-pink {
+    background-color: #d63384 !important;
+    border-color: #d63384 !important;
+    color: white !important;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.btn-pink:hover {
+    background-color: #a82363 !important;
+    border-color: #a82363 !important;
+    color: white !important;
 }
