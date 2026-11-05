@@ -1,0 +1,22 @@
+LOG PENGGUNAAN AI - PRAKTIKUM PERTEMUAN 11
+Laravel CRUD Lanjutan: Show, Validation, Edit, Update & Delete
+============================================================
+
+Nama     : Mardatul Rahmi
+NIM      : 2524234
+Kelas    : 5G
+Mata Kuliah: Pemrograman Web III
+Tanggal  : 04/11/2026
+
+============================================================
+CATATAN PENTING
+============================================================
+Log ini mendokumentasikan bagaimana saya menggunakan AI sebagai
+"pair programmer" selama mengerjakan praktikum. Saya tetap memahami
+dan dapat menjelaskan setiap konsep yang diterapkan, termasuk:
+- Route model binding
+- Form Request (StoreCourseRequest & UpdateCourseRequest)
+- Fungsi validated()
+- Rule::unique()->ignore($course)
+- Method spoofing (@method PUT/DELETE)
+- Fungsi old() untuk mempertahankan input user

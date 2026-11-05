@@ -1,0 +1,20 @@
+📋 DOKUMEN TEST MATRIX - PRAKTIKUM PERTEMUAN 11
+Nama: Mardatul Rahmi | NIM: 2524234 | PTIK 5G | Pemrograman Web III
+
+| No | Kasus Uji (Skenario) | Input / Tindakan | Hasil yang Diharapkan (Expected) | Hasil Aktual (Actual) | Status | Bukti (Nama File Screenshot) |
+|:--:|:---|:---|:---|:---|:--:|:---|
+| **1** | Duplicate code saat Create | Input `code` yang sudah ada di database | Ditolak; muncul error merah di field `code` | | Pass / Fail | `01-error-duplicate-code.png` |
+| **2** | Nama kursus kosong | Kosongkan field `name`, isi field lain valid | Ditolak; muncul error "name field is required" | | Pass / Fail | `02-error-nama-kosong.png` |
+| **3** | Nama terlalu pendek | Isi `name` dengan "AI" (2 karakter) | Ditolak; muncul error "minimal 3 karakter" | | Pass / Fail | `03-error-nama-pendek.png` |
+| **4** | Fee (Biaya) negatif | Isi `fee` dengan `-1000` | Ditolak; muncul error "minimal 0" | | Pass / Fail | `04-error-fee-negatif.png` |
+| **5** | Fee bukan angka (integer) | Isi `fee` dengan huruf "abc" | Ditolak; muncul error "harus integer" | | Pass / Fail | `05-error-fee-bukan-angka.png` |
+| **6** | Quota nol | Isi `quota` dengan `0` | Ditolak; muncul error "minimal 1" | | Pass / Fail | `06-error-quota-0.png` |
+| **7** | Quota melebihi batas | Isi `quota` dengan `501` | Ditolak; muncul error "maksimal 500" | | Pass / Fail | `07-error-quota-501.png` |
+| **8** | Boundary Quota Minimum | Isi `quota` dengan `1` (dan data lain valid) | **Diterima**; data berhasil disimpan | | Pass / Fail | `08-sukses-quota-1.png` |
+| **9** | Boundary Quota Maksimum | Isi `quota` dengan `500` (dan data lain valid) | **Diterima**; data berhasil disimpan | | Pass / Fail | `09-sukses-quota-500.png` |
+| **10** | Tanggal invalid | Manipulasi input `start_date` jadi teks biasa (via Inspect Element) | Ditolak; muncul error "harus format tanggal valid" | | Pass / Fail | `10-error-tanggal-invalid.png` |
+| **11** | Status invalid | Ubah value dropdown jadi "active" (via Inspect Element) | Ditolak; muncul error "hanya draft/open/closed" | | Pass / Fail | `11-error-status-invalid.png` |
+| **12** | Update dengan code sendiri | Edit Course, ubah `name` saja, **jangan ubah** `code` | **Berhasil**; redirect ke detail + pesan sukses | | Pass / Fail | `12-sukses-update-code-sendiri.png` |
+| **13** | Update ke code Course lain | Edit Course, ubah `code` menjadi milik Course lain | Ditolak; muncul error "code sudah digunakan" | | Pass / Fail | `13-error-update-code-orang.png` |
+| **14** | Update normal | Ubah `name`, `fee`, atau `quota` dengan nilai valid | **Berhasil**; data berubah sesuai input | | Pass / Fail | `14-sukses-update-normal.png` |
+| **15** | Delete Course Dummy | Buat Course "DEL-001", klik Hapus, pilih OK | Data hilang dari tabel + muncul flash message sukses | | Pass / Fail | `15-sukses-delete.png` |

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CourseController; // <-- TAMBAHKAN BARIS INI
 
 // ==========================================
 // 1. ROUTE BERANDA (dari pertemuan sebelumnya)
@@ -11,7 +12,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 // ==========================================
-// 2. ROUTE FORM PENDAFTARAN
+// 2. ROUTE RESOURCE COURSE (BARU DITAMBAHKAN)
+// ==========================================
+// Ini akan otomatis membuat 7 route: index, create, store, show, edit, update, destroy
+Route::resource('courses', CourseController::class);
+
+
+// ==========================================
+// 3. ROUTE FORM PENDAFTARAN
 // ==========================================
 
 // Tampilkan halaman form
@@ -40,7 +48,7 @@ Route::post('/pendaftaran/preview', function (Request $request) {
 
 
 // ==========================================
-// 3. ROUTE JSON AVAILABILITY (UNTUK AJAX)
+// 4. ROUTE JSON AVAILABILITY (UNTUK AJAX)
 // ==========================================
 Route::get('/courses/{course}/availability', function (int $course) {
     $availability = [
