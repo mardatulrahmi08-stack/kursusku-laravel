@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fdf2f8; /* Background pink sangat muda */
+    color: #831843; /* Teks magenta gelap */
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.navbar {
+    background: #db2777; /* Navbar Pink Magenta */
+    color: white;
+    padding: 16px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+    align-items: center;
+    padding: 56px 0;
+}
+
+.hero img {
+    width: 100%;
+    border-radius: 18px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-bottom: 48px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid #fbcfe8; /* Border card pink muda */
+}
+
+.card h3 {
+    color: #be185d; /* Judul card magenta */
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.card small {
+    color: #db2777; /* Kode kursus pink */
+    font-weight: bold;
+}
+
+/* Tampilan Mobile (Responsive) */
+@media (max-width: 760px) {
+    .hero,
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,56 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Background terang (putih/abu-abu sangat muda) */
+body {
+    background: #f8f9fa; 
+    color: #212529; /* Teks gelap */
+}
+
+.navbar-brand {
+    font-weight: 800;
+}
+
+/* Navbar Pink Magenta */
+.bg-pink-magenta {
+    background-color: #d63384 !important;
+}
+
+/* Tombol Pink Magenta */
+.btn-pink {
+    background-color: #d63384 !important;
+    border-color: #d63384 !important;
+    color: white !important;
+}
+
+.btn-pink:hover {
+    background-color: #a82363 !important;
+    border-color: #a82363 !important;
+    color: white !important;
+}
+
+/* Badge Pink Magenta */
+.badge-pink {
+    background-color: #d63384 !important;
+    color: white !important;
+}
+/* Badge Pink Magenta */
+.badge-pink {
+    background-color: #d63384 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Tombol Pink Magenta */
+.btn-pink {
+    background-color: #d63384 !important;
+    border-color: #d63384 !important;
+    color: white !important;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.btn-pink:hover {
+    background-color: #a82363 !important;
+    border-color: #a82363 !important;
+    color: white !important;
+}
