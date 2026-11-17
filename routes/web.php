@@ -3,52 +3,21 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CourseController; // <-- TAMBAHKAN BARIS INI
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EnrollmentController; // <-- PASTIKAN INI ADA DI ATAS
 
 // ==========================================
-// 1. ROUTE BERANDA (dari pertemuan sebelumnya)
+// 1. ROUTE BERANDA
 // ==========================================
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
 // ==========================================
-// 2. ROUTE RESOURCE COURSE (BARU DITAMBAHKAN)
+// 2. ROUTE RESOURCE COURSE
 // ==========================================
-// Ini akan otomatis membuat 7 route: index, create, store, show, edit, update, destroy
 Route::resource('courses', CourseController::class);
 
-
 // ==========================================
-// 3. ROUTE FORM PENDAFTARAN
-// ==========================================
-
-// Tampilkan halaman form
-Route::get('/pendaftaran', function () {
-    $courses = [
-        1 => ['name' => 'Web Dasar'],
-        2 => ['name' => 'PHP Dasar'],
-        3 => ['name' => 'Laravel Dasar'],
-    ];
-
-    return view('enrollments.create', compact('courses'));
-})->name('enrollments.create');
-
-// Proses submit form
-Route::post('/pendaftaran/preview', function (Request $request) {
-    $data = $request->validate([
-        'name' => ['required', 'string', 'min:3', 'max:100'],
-        'email' => ['required', 'email'],
-        'course_id' => ['required', 'integer'],
-    ]);
-
-    return back()
-        ->with('success', 'Form lolos validasi. Database akan ditambahkan pada pertemuan berikutnya.')
-        ->withInput();
-})->name('enrollments.preview');
-
-
-// ==========================================
-// 4. ROUTE JSON AVAILABILITY (UNTUK AJAX)
+// 3. ROUTE JSON AVAILABILITY (AJAX)
 // ==========================================
 Route::get('/courses/{course}/availability', function (int $course) {
     $availability = [
@@ -61,3 +30,21 @@ Route::get('/courses/{course}/availability', function (int $course) {
 
     return response()->json($availability[$course]);
 })->name('courses.availability');
+
+// ==========================================
+// 4. ROUTE ENROLLMENT (PERTEMUAN 12 - BARU)
+// ==========================================
+// Route ini akan menangani:
+// GET  /enrollments        -> index (Laporan)
+// GET  /enrollments/create -> create (Form)
+// POST /enrollments        -> store (Simpan)
+Route::resource('enrollments', EnrollmentController::class)->only(['index', 'create', 'store']);
+
+/* 
+======================================================================
+CATATAN: ROUTE LAMA '/pendaftaran' TELAH DIHAPUS/DICOMMENT
+Alasan: Nama route 'enrollments.create' tidak boleh dobel. 
+Route lama menggunakan closure dan data hardcoded, 
+sedangkan route baru menggunakan EnrollmentController dan database.
+======================================================================
+*/
